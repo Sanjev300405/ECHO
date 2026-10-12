@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: echo
+      POSTGRES_USER: echo
+      POSTGRES_PASSWORD: echo_demo_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - echo_pgdata:/var/lib/postgresql/data
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://echo:echo_demo_password@db:5432/echo
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  frontend:
+    build: ./frontend
+    environment:
+      VITE_API_URL: http://localhost:8000/api
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+volumes:
+  echo_pgdata:

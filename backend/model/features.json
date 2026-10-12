@@ -1,0 +1,14 @@
+[
+  "memory_difficulty",
+  "missed_medications",
+  "routine_disruption",
+  "wandering_risk",
+  "fall_risk",
+  "sleep_disruption",
+  "mood_change",
+  "social_withdrawal",
+  "nutrition_concern",
+  "caregiver_burden",
+  "safety_incidents",
+  "adl_support_need"
+]
